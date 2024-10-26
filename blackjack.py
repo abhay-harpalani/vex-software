@@ -14,7 +14,7 @@ for _ in range(1000):
     # (edit this part)
     action = env.action_space.sample()
 
-    # take the chosed action and get the next state and reward
+    # take the chosen action and get the next state and reward
     observation, reward, terminated, truncated, info = env.step(action)
 
     # if we have reached an end state, reset the environment
