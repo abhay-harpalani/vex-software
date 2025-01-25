@@ -4,7 +4,7 @@ import torch.optim as optim
 import gymnasium as gym
 import random
 
-from q_network import QNetwork 
+from q_network import QNetwork
 from replay_buffer import ReplayBuffer
 
 BUFFER_SIZE = 100000
@@ -17,7 +17,8 @@ EPSILON_DECAY = 0.995
 TARGET_UPDATE_FREQ = 10
 
 # set render_mode=None if you want to train your model (will not open a pygame window and will just simulate it)
-env = gym.make("LunarLander-v3", render_mode="human")
+env = gym.make("LunarLander-v3", render_mode=None)
+
 env.action_space.seed(42)
 input_dim = env.observation_space.shape[0]
 output_dim = 4
@@ -107,3 +108,4 @@ for episode in range(num_episodes):
     print(f"Episode {episode}, Total Reward: {total_reward}, Epsilon: {EPSILON:.3f}")
 
 env.close()
+torch.save(q_network.state_dict(), "q_network.pth")
