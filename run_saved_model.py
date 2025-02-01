@@ -111,4 +111,3 @@ for episode in range(num_episodes):
     # print(f"Episode {episode}, Total Reward: {total_reward}, Epsilon: {EPSILON:.3f}")
 
 env.close()
-# torch.save(q_network.state_dict(), "q_network.pth")
