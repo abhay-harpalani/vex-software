@@ -16,6 +16,8 @@ EPSILON_MIN = 0.01
 EPSILON_DECAY = 0.995
 TARGET_UPDATE_FREQ = 10
 
+SAVE_FREQ = 50
+
 # set render_mode=None if you want to train your model (will not open a pygame window and will just simulate it)
 env = gym.make("LunarLander-v3", render_mode=None)
 
@@ -23,7 +25,14 @@ env.action_space.seed(42)
 input_dim = env.observation_space.shape[0]
 output_dim = 4
 
+should_preload = False              # Set to True if you want to preload and continue training
+preload_from = "q_network.pth"          
+
 q_network = QNetwork(input_dim, output_dim)
+if should_preload:
+    q_network.load_state_dict(torch.load(preload_from))
+    q_network.train()
+    EPSILON = EPSILON_MIN
 target_network = QNetwork(input_dim, output_dim)
 target_network.load_state_dict(q_network.state_dict())
 target_network.eval()
@@ -104,6 +113,9 @@ for episode in range(num_episodes):
 
     if episode % TARGET_UPDATE_FREQ == 0:
         target_network.load_state_dict(q_network.state_dict())
+    
+    if episode % SAVE_FREQ == 0:
+        torch.save(q_network.state_dict(), "q_network.pth")
 
     print(f"Episode {episode}, Total Reward: {total_reward}, Epsilon: {EPSILON:.3f}")
 
