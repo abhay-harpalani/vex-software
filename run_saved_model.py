@@ -25,7 +25,7 @@ input_dim = env.observation_space.shape[0]
 output_dim = 4
 
 q_network = QNetwork(input_dim, output_dim)
-q_network.load_state_dict(torch.load('q_network.pth'))
+q_network.load_state_dict(torch.load('q_network_4_layers.pth'))
 
 # target_network = QNetwork(input_dim, output_dim)
 # target_network.load_state_dict(q_network.state_dict())
