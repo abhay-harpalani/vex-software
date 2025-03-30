@@ -36,7 +36,7 @@ q_network.load_state_dict(torch.load('q_network_4_layers.pth'))
 
 # replay_buffer = ReplayBuffer(BUFFER_SIZE, BATCH_SIZE)
 
-observation, info = env.reset(seed=42)
+observation, info = env.reset(seed=40)
 print("env.observation_space", env.observation_space)
 print("env.action_space", env.action_space)
 print("env.observation_space.sample()", env.observation_space.sample())

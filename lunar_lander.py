@@ -63,7 +63,7 @@ print("env.observation_space.sample()", env.observation_space.sample())
 #  2 - main engine
 #  3 - right engine
 
-num_episodes = 1500
+num_episodes = 2000
 for episode in range(num_episodes):
     state, _ = env.reset()
     state = torch.tensor(state, dtype=torch.float32)
