@@ -25,7 +25,7 @@ input_dim = env.observation_space.shape[0]
 output_dim = 4
 
 q_network = QNetwork(input_dim, output_dim)
-q_network.load_state_dict(torch.load('q_network_4_layers.pth'))
+q_network.load_state_dict(torch.load('q_network.pth'))
 
 # target_network = QNetwork(input_dim, output_dim)
 # target_network.load_state_dict(q_network.state_dict())
@@ -57,7 +57,7 @@ print("env.observation_space.sample()", env.observation_space.sample())
 #  2 - main engine
 #  3 - right engine
 
-num_episodes = 5
+num_episodes = 1000
 for episode in range(num_episodes):
     state, _ = env.reset()
     state = torch.tensor(state, dtype=torch.float32)
