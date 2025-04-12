@@ -1,0 +1,30 @@
+{
+    "EnemyPaddle": {
+        "elo": 1200.0,
+        "checkpoints": [
+            {
+                "steps": 24064,
+                "file_path": "results/ppo/EnemyPaddle/EnemyPaddle-24064.onnx",
+                "reward": null,
+                "creation_time": 1744497284.0521715,
+                "auxillary_file_paths": [
+                    "results/ppo/EnemyPaddle/EnemyPaddle-24064.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 24064,
+            "file_path": "results/ppo/EnemyPaddle.onnx",
+            "reward": null,
+            "creation_time": 1744497284.0521715,
+            "auxillary_file_paths": [
+                "results/ppo/EnemyPaddle/EnemyPaddle-24064.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.6.0+cu124"
+    }
+}
