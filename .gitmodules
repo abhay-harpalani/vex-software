@@ -1,0 +1,3 @@
+[submodule "pong"]
+	path = pong
+	url = git@github.com:kidskoding/pong.git

@@ -2,3 +2,6 @@
 .idea/*
 .venv/*
 .vscode/*
+.ipynb_checkpoints/
+__pycache__/
+*.pth
